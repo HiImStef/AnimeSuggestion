@@ -1,0 +1,40 @@
+package com.scyp.animesuggestions
+
+import android.content.Intent
+import androidx.appcompat.app.AppCompatActivity
+import android.os.Bundle
+import android.widget.Button
+import kotlinx.android.synthetic.main.activity_main.*
+import java.util.*
+
+
+class MainActivity : AppCompatActivity() {
+    val programmingList = arrayListOf("Z Tier: hajimi no ippo","Z Tier: Jo jo’s bizarre adventure","Z Tier: Your lie in April", "Z Tier: Full metal alchemist brotherhood", "Z tier: Naruto", "Z Tier: Yu yu hasuko","Z Tier: Death Note","Z Tier: Hunter x hunter","Z Tier: Assassination classroom","Z tier: 7 Deadly Sins"
+    ,"SS Tier: My Hero Academia", "SS tier: Dragon Ball Z","SS tier: Parasyte","SS:Tier Black Clover","SS:Tier Haikyu","S Tier: Reincarnated as a slime","S Tier: Demon Slayer","S Tier: Tokyo Ghoul", "S Tier: Dr.Stone","S Tier: Beezlebub","S Tier: GTO","Tier 1: Fairy Tale","Tier 1: One Punch Man","Tier 1: Baki","Tier 1: Sword Art Online"
+    ,"Tier 1: Kurkos Baksetball","Tier 1: Old Beserk","Tier 2: Bleach","Tier 2: Blue Exorcist","Tier 2: Attack on Titan","Tier 2: Kokoro Connect","Tier 2: Domestic Girlfriend","Tier 2: Goblin Slayer","Tier 2: Full Metal Panic","Tier 2: Relife","Tier 2:Infintate dendrogram","Tier 3: Rascal Does Not Dream","Tier 3: Accel World","Tier 3: Konosuba","Tier 3: Ser Vamp","Tier 3: From Me To You"
+    ,"Tier 3: Meglobox","Tier 4: Fire Force","Tier 4: Oerino 2","Tier 4: The Ancient Magnus Bride","Tier 5: Cowboy bebop","Unlisted: Gun Gale Online","Unlisted: Hellsing","Unlisted: Magi labyrinth of magic","Unlisted: Magi Kingdom of magic","Unlisted: Adventures of sin as","Unlisted: Faith/Zero","Unlisted: Guilty Crown","Unlisted: Fate stay night unlimited blade works"
+    ,"Unlisted: Code Gaessus","Unlisted: Kenja no mago","Unlisted: Arifuerta","Unlisted: Promised never land","Unlisted: Phantasy star online 1&2","Unlisted: Kyokou suiri","Unlisted: Claymore","Unlisted: KillaKill","Unlisted: Vampire Hunter D","Unlisted: Rurouni Kenshin","Unlisted: Myself Yourself","Unlisted: One Piece"
+    ,"Sailor Moon","Unlisted: Gintama","Unlisted: Howls Moving Castle")
+
+
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+
+        val button = findViewById<Button>(R.id.button)
+
+        button.setOnClickListener {
+            val intent = Intent(this, Main2Activity::class.java)
+
+            startActivity(intent)
+        }
+
+        findShow.setOnClickListener {
+            val random = Random()
+            val randomProgram = random.nextInt(programmingList.count())
+
+            textView2.text = programmingList[randomProgram]
+        }
+    }
+}
